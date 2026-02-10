@@ -22,3 +22,13 @@ jobs:
 
      - name: build project
        run: dotnet build --configuration Release --no-restore
+       
+     - name: publish application
+       run: dotnet publish -c Release -o publish
+
+     - name: upload build artifact
+       uses: actions/upload-artifact@v4
+       with:
+         name: app-publish
+         path: publish
+
